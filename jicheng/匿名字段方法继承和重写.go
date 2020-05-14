@@ -28,7 +28,10 @@ func (tmp *Student) PrintInfo() {
 
 func main() {
 	s := Student{Person{"lzk", 'n', 30}, 1, "beijing"}
+
+	//方法重写之后 调用原则为就近原则
 	s.PrintInfo()
 
+	// 显示调用继承的方法
 	s.Person.PrintInfo()
 }
