@@ -61,4 +61,27 @@ func main() {
 		return
 	}
 	fmt.Println("json解析到结构体:", tmp)
+
+	// json解析到map
+	jsonStr1 := `
+{
+	"Id": 2,
+	"order": "GW12378957645123",
+	"Subject": [
+		"Go",
+		"php"
+	],
+	"Isok": "true",
+	"Price": 45843.2
+}`
+
+	// 定义一个map
+	maps := make(map[string]interface{}, 4)
+
+	errs = json.Unmarshal([]byte(jsonStr1), &maps)
+	if err != nil {
+		fmt.Println("err", errs)
+		return
+	}
+	fmt.Println("json解析到map:", maps)
 }
